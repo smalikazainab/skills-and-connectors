@@ -1,0 +1,26 @@
+# Task 3 — Wire Skill + Connector Together
+
+## The Combined Workflow
+
+This task combines the **Flashcard Maker Skill** (Task 1) with the **Gmail Connector** (Task 2) into a single plain-English request. Instead of manually copying content out of an email and then asking for flashcards, one sentence does both steps: the Connector fetches live email content, and the Skill formats it into flashcards.
+
+## Setup Note
+
+Gmail's connector could read the **body text** of an email but could not read the content of file **attachments** (PDF/PPTX). To work around this, I sent a test email to myself with the actual lecture content pasted directly into the email body (instead of only as an attachment), so the connector had real text to retrieve
+
+## What Happened
+
+1. The Gmail Connector searched my inbox and retrieved the most recent email (a "Lecture 8" email containing notes on Requirements Elicitation).
+2. It extracted the real body text of that email.
+3. The Flashcard Maker Skill automatically triggered and formatted that content into 10 Q&A flashcards — without me needing to name the skill or manually paste anything into the chat.
+
+## How I Verified It
+
+I spot-checked the flashcard content against the original email text (and the source lecture material) to confirm the questions and answers accurately reflected the real content, rather than generic or hallucinated information.
+
+## What Worked / What Didn't
+
+- ✅ A single sentence successfully triggered both the Connector and the Skill in sequence.
+- ✅ The flashcards accurately reflected the real email content.
+- ⚠️ The Gmail connector's limitation is that it cannot read PDF/PPTX **attachment** contents — only the plain text typed into the email body. This is a real, useful lesson in understanding exactly what a connector's read access does and does not cover.
+
