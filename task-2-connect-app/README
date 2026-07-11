@@ -1,0 +1,27 @@
+# Task 2 — Connect One App, Read-Only: Gmail
+
+## App Connected
+
+**Gmail** — connected via Claude's Connectors settings.
+
+## How I Connected It
+
+1. Opened Claude Settings → Connectors
+2. Searched for "Gmail" and clicked Connect
+3. Logged in with my Google account
+4. On the permissions screen, selected **only** "View your email messages and settings" (read-only) — left "Manage drafts and send emails" and "Read, compose, and send emails" **unchecked**
+5. Clicked Allow to confirm the connection
+
+## Prompt Used
+
+> summarize my most recent email
+
+## How I Tested / Verified It
+
+After connecting, I asked Claude to summarize my most recent email. Claude retrieved the actual email from my inbox (a Google security alert confirming the connector authorization) and summarized it correctly. I then manually checked my Gmail inbox and confirmed the same email was there, matching Claude's summary exactly.
+
+## What Worked / What Didn't
+
+- ✅ Read-only access worked correctly — Claude could search and read emails but had no send/delete capability.
+- ⚠️ In the same chat session where the connector was first authorized, the Gmail tools did not immediately appear — this required starting a fresh chat for the tools to become available. This is expected connector behavior, not a permissions issue.
+
