@@ -1,0 +1,3 @@
+Initial prompt: "flashcard is good" (topic selection)
+Clarifying answers given: topic-only input, simple Q&A format, triggered by the phrase "make flashcards"
+Test prompt: "make flashcards on [topic]"
