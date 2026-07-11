@@ -1,0 +1,50 @@
+# Task 5 — Skill Safety Audit
+
+## Skill Audited
+**Name:** `pdf` (PDF Processing Skill)
+**Source:** Anthropic's official public skills directory (pre-installed in the Claude environment)
+**Location:** `/mnt/skills/public/pdf/`
+
+## What the Skill Does
+
+The `pdf` skill is a general-purpose toolkit for working with PDF files. It enables Claude to:
+
+- Extract text and tables from PDF documents
+- Merge multiple PDFs into one, or split a single PDF into separate files
+- Rotate pages and add watermarks
+- Create new PDF documents from scratch
+- Fill out PDF forms
+- Run OCR (Optical Character Recognition) on scanned PDFs to make them searchable
+- Add or remove password protection on a PDF
+
+It accomplishes this using well-established, open-source Python libraries (`pypdf`, `pdfplumber`, `reportlab`, `pytesseract`) and standard command-line tools (`pdftotext`, `qpdf`, `pdftk`). All operations are file-based: the skill reads an input file from the local filesystem and writes an output file back to the local filesystem.
+
+## Safety Assessment
+
+### 1. Does it contact any external server?
+**No.** A full review of all eight scripts bundled with the skill (in the `scripts/` folder) found no network-related code — no HTTP requests, no URLs, no socket connections. Every operation runs entirely locally; no data leaves the machine at any point.
+
+### 2. Does it handle credentials?
+**Only in a narrow, expected way.** The skill includes a password-protection feature (`writer.encrypt()`) that lets a user set a password on a PDF file. This password is used solely to encrypt the local output file — it is not transmitted, logged, or stored anywhere outside that file. This is standard, intended functionality and not a credential-handling risk.
+
+### 3. Does it send data anywhere unexpected?
+**No.** Every function in the skill takes a local input file and produces a local output file in the same working directory. There is no cloud upload, telemetry, analytics, or hidden data transmission of any kind.
+
+### 4. Any other notable risks?
+None identified. The skill's actual behavior matches its stated description exactly — there is no hidden or undocumented functionality beyond standard PDF manipulation.
+
+## Verdict
+
+**✅ Safe to enable.**
+
+The `pdf` skill performs only local file operations using standard, well-known libraries. It does not access the network, does not exfiltrate data, and does not perform any action beyond what its description promises. There is no reason to distrust this skill, and it can be enabled without reservation.
+
+## Methodology
+
+This assessment was produced by:
+1. Reading the skill's `SKILL.md` to understand its documented purpose and scope.
+2. Reviewing the full folder structure to identify all bundled files (reference docs, license, and scripts).
+3. Scanning all Python scripts for network calls, credential handling, and other sensitive operations (using pattern searches for terms such as `requests`, `urllib`, `http`, `socket`, `api_key`, `token`, `password`).
+4. Comparing the skill's actual code behavior against its stated description to confirm there was no discrepancy.
+
+No code-reading expertise was required to reach this verdict — the process relied on asking the AI to explain the skill in plain language and flag anything unusual, then verifying those claims against the source.
