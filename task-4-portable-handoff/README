@@ -1,0 +1,31 @@
+# Task 4 — Hand Off
+
+## Path Chosen
+
+**Hand Off** — I shared the Flashcard Maker skill file with a friend and had her use it herself, with no extra explanation from me.
+
+## What I Did
+
+1. Took the packaged `flashcard-maker.skill` file (built in Task 1).
+2. Sent the file directly to my friend (via chat), without giving her any explanation of how it works or what to type.
+3. She loaded/saved the skill on her own account.
+4. She then typed a normal, natural-language request on her own — without me telling her the exact trigger phrase.
+
+## Prompt Used (by my friend, independently)
+
+> make flashcard on topic: Impacts of AI on jobs
+
+## Result
+
+The skill triggered automatically on her end and produced flashcards in the exact same format defined in Task 1 (📚 heading + numbered Q&A pairs) — confirming that the skill works correctly for someone else, without any guidance from me.
+
+## How I Verified It
+
+I compared her output with the original Task 1 output format: same heading style, same numbered Q&A structure, same tone. She confirmed it worked correctly and gave her the flashcards she needed on her own topic.
+
+## What Worked / What Didn't
+
+- ✅ My friend was able to use the skill successfully with zero explanation from me.
+- ✅ The skill triggered automatically from her own natural-language prompt.
+- ✅ Output format was identical to the original — proving the skill is a genuine, portable, reusable asset and not something that only works for me in the original chat.
+
