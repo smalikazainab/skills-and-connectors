@@ -1,0 +1,47 @@
+# Task 1 — Build Your First Real Skill: Flashcard Maker
+
+## What This Skill Does
+
+The **Flashcard Maker** skill generates study flashcards in a clean Question–Answer format for any topic the user names — no need to paste notes or source material. This solves a real daily-life problem: as a student, I frequently need to revise topics quickly before exams or quizzes, and manually creating flashcards is time-consuming.
+
+## Why I Chose This Skill / How It Helps My Daily Life
+
+I chose this because flashcard-based revision is something I do regularly while studying, and I was tired of manually formatting Q&A sets every time. This skill lets me simply say a topic name and instantly get a structured, review-ready flashcard set — something I plan to keep using well beyond this assignment.
+
+## How the Skill Works
+
+- **Trigger phrase:** `make flashcards on [topic]`
+- **Input:** Just a topic name (the AI generates the content itself using its own knowledge)
+- **Output format:** A numbered list of 10 flashcards by default, each with a `Q:` and a short `A:`, ordered from easier to harder concepts
+- **Built using:** Anthropic's `skill-creator` skill, through a short clarifying-question interview
+
+## Prompts Used
+
+**Initial prompt (to skill-creator):**
+> Build me a flashcard maker skill for studying.
+
+**Clarifying answers given during the skill-creator interview:**
+1. Input type: Topic name only (AI generates content itself)
+2. Format: Simple Q&A
+3. Trigger phrase: "make flashcards"
+
+**Test prompt (in a new chat, without naming the skill):**
+> make flashcards on [topic]
+
+## How I Tested It
+
+I opened a new conversation and typed a normal request (`make flashcards on [topic]`) without mentioning the skill by name. The skill triggered automatically and produced the expected format consistently across multiple topics.
+
+## What Worked / What Didn't
+
+- ✅ The skill triggers reliably from natural language without needing the skill name mentioned.
+- ✅ Output format stayed consistent across different topics.
+- ⚠️ For very broad topics, the skill focuses on the most commonly important facts rather than covering everything — this is expected behavior, not a bug.
+
+## Screenshot(s) to Include
+
+📸 Take a screenshot of a **new chat** where you typed a plain request like `make flashcards on [topic]` **without mentioning the skill name**, showing:
+- Your typed prompt
+- The skill triggering automatically (the response should show the flashcards in the defined format: `📚 Flashcards: [Topic]` followed by numbered Q&A pairs)
+
+This proves the skill triggers automatically and produces a consistent result.
